@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Make sure app takes full height */
+html, body, #root {
+  height: 100%;
+}
+
+/* Body default styling */
+body {
+  background-color: #0D0D0D; /* primaryBg */
+  color: #FFFFFF;             /* textPrimary */
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Playfair Display */
+h1, h2, h3, .font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Alternate background for mobile sections */
+@media (max-width: 767px) {
+  .bg-alt-mobile {
+    background-color: #FAF8F5; /* altMobileBg */
+    color: #111;               /* Ensure text readable on light bg */
+  }
+}
+
+/* Accessible focus states */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.6); /* accent */
+  outline-offset: 2px;
+}
+
+/* Fix white highlight on inputs, textareas, selects */
+input,
+textarea,
+select {
+  background-color: #0D0D0D; /* primaryBg */
+  color: #FFFFFF;             /* textPrimary */
+  border-color: #1F1F1F;      /* border/input fields default */
+  border-radius: 0.5rem;
+  appearance: none;           /* Remove browser-native styling */
+  caret-color: #D4AF37;       /* Gold caret */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: #0D0D0D; /* Keep dark on focus */
+  outline: none;              /* Remove default outline */
+  box-shadow: 0 0 0 1px #D4AF37; /* Subtle accent glow */
+  color: #FFFFFF;             /* Text color */
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+  color: #B0B0B0; /* Secondary Text */
+}
+
+/* Optional: smooth transition for focus */
+input,
+textarea,
+select {
+  transition: all 0.2s ease;
+}
+
+/* ------------------ WhatsApp Button Animation ------------------ */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+/* Tooltip styling already included via Tailwind group-hover */
